@@ -1,44 +1,14 @@
 <!doctype html>
-<!-- Plantilla de la imagen que se ve al compartir el link (WhatsApp, Facebook, etc.): 1200 × 630 px.
-     Para regenerarla: abrir con Chrome en modo headless (ver README, sección "Imagen al compartir") y guardar como assets/og-image.jpg -->
-<html lang="es"><head><meta charset="utf-8">
-<style>
-@font-face{font-family:'Bricolage Grotesque';src:url(../assets/fonts/bricolage.woff2) format('woff2');font-weight:600 800}
-@font-face{font-family:'Figtree';src:url(../assets/fonts/figtree.woff2) format('woff2');font-weight:400 700}
-*{box-sizing:border-box;margin:0}
-html,body{width:1200px;height:630px;overflow:hidden}
-body{position:relative;font-family:'Figtree',sans-serif;color:#fff8ec;background:radial-gradient(90% 120% at 15% 10%,#0d3d6b 0%,#0a2b4a 55%,#061a2c 100%)}
-.sun{position:absolute;right:-90px;top:-110px;width:560px;height:560px;border-radius:50%;background:#ffc233}
-.arch{position:absolute;right:92px;top:58px;width:400px;height:540px;border-radius:200px 200px 34px 34px;overflow:hidden;box-shadow:0 40px 70px -30px rgba(0,0,0,.7)}
-.arch img{width:100%;height:100%;object-fit:cover;display:block}
-.arch.b{right:420px;top:318px;width:200px;height:290px;border-radius:100px 100px 26px 26px;border:8px solid #0a2b4a;box-shadow:0 30px 50px -20px rgba(0,0,0,.6)}
-.copy{position:absolute;left:72px;top:58px;width:560px}
-.brand{display:flex;align-items:center;gap:16px;font:800 34px/1 'Bricolage Grotesque',sans-serif;letter-spacing:-.01em}
-.brand svg{width:68px;height:68px}
-.brand b{color:#ffc233}
-.eyebrow{margin-top:50px;display:flex;align-items:center;gap:14px;font-weight:700;font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:#2fc7e6}
-.eyebrow::before{content:"";width:44px;height:5px;border-radius:5px;background:#ffc233}
-h1{margin-top:18px;font:800 94px/.92 'Bricolage Grotesque',sans-serif;letter-spacing:-.028em}
-h1 em{font-style:normal;color:#ffc233}
-.pill{position:absolute;left:72px;bottom:64px;display:flex;gap:12px}
-.pill span{padding:11px 24px;border-radius:999px;font-weight:700;font-size:22px;background:#ffc233;color:#0b2239}
-.pill span+span{background:transparent;color:#fff8ec;box-shadow:inset 0 0 0 3px rgba(255,248,236,.55)}
-.key{position:absolute;left:0;right:0;bottom:0;height:33px;background:rgba(255,255,255,.16);
- -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='44' viewBox='0 0 48 44'%3E%3Cpath d='M1.5 40V4H36V36H12V16H28V24H20M36 40H48' fill='none' stroke='black' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E") 0 50%/auto 100% repeat-x;
- mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='44' viewBox='0 0 48 44'%3E%3Cpath d='M1.5 40V4H36V36H12V16H28V24H20M36 40H48' fill='none' stroke='black' stroke-width='3' stroke-linecap='square'/%3E%3C/svg%3E") 0 50%/auto 100% repeat-x}
-</style></head>
+<!-- Recorte de la foto original para la vista previa del enlace: 1200 × 630 px. -->
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <style>
+    html, body { width: 1200px; height: 630px; margin: 0; overflow: hidden; }
+    img { display: block; width: 1200px; height: 630px; object-fit: cover; object-position: center 56%; }
+  </style>
+</head>
 <body>
-<div class="sun"></div>
-<figure class="arch"><img src="../assets/img/pileta-1086.webp" alt=""></figure>
-<figure class="arch b"><img src="../assets/img/deck-reposeras-480.webp" alt=""></figure>
-<div class="copy">
-  <div class="brand">
-    <svg viewBox="0 0 64 64"><defs><clipPath id="c"><circle cx="32" cy="32" r="30"/></clipPath></defs><circle cx="32" cy="32" r="30" fill="#ffc233"/><g clip-path="url(#c)"><path d="M29.5 40C29.5 29 30 20 33.5 11" stroke="#0b2239" stroke-width="3.6" fill="none" stroke-linecap="round"/><path d="M33.5 11C28 7.5 21 8 16 13M33.5 11C30 5 24 4 18 6M33.5 11C40 7.5 47 9 52 15M33.5 11C38 5 44 5 49 8M33.5 11C34 6 38 3 43 3" stroke="#0b2239" stroke-width="3.2" fill="none" stroke-linecap="round"/><path d="M-2 37q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1a82e0"/><path d="M-2 45q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1065b8"/><path d="M-2 53q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#0a4f9a"/></g></svg>
-    <span>Quincho <b>Paraíso</b></span>
-  </div>
-  <p class="eyebrow">Bahía Blanca</p>
-  <h1>Tu festejo merece un <em>paraíso.</em></h1>
-</div>
-<div class="pill"><span>Quincho con pileta</span><span>Hasta 30 personas</span></div>
-<div class="key"></div>
-</body></html>
+  <img src="originals/pileta-techada.webp" alt="Pileta y patio del Quincho Paraíso">
+</body>
+</html>

@@ -33,7 +33,7 @@ js/scroll.js               efectos con el scroll: barra de progreso, parallax de
 assets/fonts/              tipografías alojadas en el sitio (Bricolage Grotesque y Figtree, solo caracteres latinos: 46 KB)
 assets/img/                fotos ya optimizadas, cada una en 3 tamaños (-480, -800 y el tamaño completo, en WebP)
 assets/icons/              logo e íconos (favicon, apple-touch, 192/512)
-assets/og-image.jpg        imagen que se ve al compartir el link (WhatsApp, Facebook…)
+assets/og-pileta-techada-foto.jpg foto que se ve al compartir el link (WhatsApp, Facebook…)
 assets/video/              acá va quincho.mp4 (ver "Video con música")
 tools/optimize-images.py   convierte y achica las fotos (ver "Fotos")
 tools/og-image.html        plantilla de la imagen para compartir
@@ -150,13 +150,13 @@ El video no se descarga hasta que la persona toca "reproducir", así que no gast
 
 ## Imagen al compartir
 
-`assets/og-image.jpg` (1200 × 630) es la miniatura que se ve al compartir el link. Sale de `tools/og-image.html`. Para regenerarla (con Chrome):
+`assets/og-pileta-techada-foto.jpg` (1200 × 630) muestra únicamente un recorte de la foto real de `pileta-techada`, sin texto ni diseño adicional. Sale de `tools/og-image.html`. Para regenerarla (con Chrome):
 
 ```bash
 chrome --headless=new --hide-scrollbars --window-size=1200,630 --screenshot=og.png --virtual-time-budget=4000 tools/og-image.html
 ```
 
-y convertí `og.png` a JPG de calidad ~85 guardándolo como `assets/og-image.jpg`.
+y convertí `og.png` a JPG de calidad ~85 guardándolo como `assets/og-pileta-techada-foto.jpg`.
 
 ## Publicar en Vercel
 
