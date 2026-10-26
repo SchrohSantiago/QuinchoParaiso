@@ -85,6 +85,17 @@ Agregá esto a la dirección:
 - `?fx=lite` o `?fx=full`: fuerza el modo de equipo lento o el completo.
 - `?debug`: muestra un recuadro con lo que midió el equipo (modo, procesador, memoria, núcleos).
 - `?noloader`: sin pantalla de carga (útil para sacar capturas).
+- `?intro`: repite la bienvenida completa, incluso si ya la viste en esta pestaña. Se puede combinar con `?intro&fx=full` o `?intro&fx=lite`.
+
+### Bienvenida animada
+
+La entrada es una postal de verano con un sol que aparece, una palmera, dos capas de olas y el nombre Paraíso. Un telón azul sube para descubrir el inicio. Está hecha con CSS y SVG inline: no agrega librerías, imágenes descargables ni bucles JavaScript por cuadro.
+
+- Espera solamente las dos fuentes locales y la decodificación de la foto principal; no espera el evento `window.load`. La barra representa recursos resueltos (incluidos los que fallan), no un porcentaje de bytes descargados.
+- Cada visita con bienvenida visible: presentación mínima de 2 segundos para que se perciban el sol, las olas y el título. `?noloader`, movimiento reducido, el botón Entrar y Escape la omiten. `sessionStorage` se conserva solo para identificar la visita, no para acortar la duración.
+- El botón **Entrar**, la tecla **Escape** o pasar el foco al contenido permiten saltar la espera. Con movimiento reducido o `?noloader`, la bienvenida se omite.
+- Si un recurso queda pendiente, abre a los 4,2 segundos del inicio del controlador. Si falla el script, el CSS oculta la pantalla y libera el desplazamiento a los 7 segundos. Sin JavaScript, la bienvenida no se muestra.
+- Las olas se pausan cuando la pestaña está oculta. El modo lite elimina los movimientos decorativos, y el elemento de carga se retira al terminar la transición.
 
 ## Datos que se editan
 

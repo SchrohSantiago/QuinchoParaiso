@@ -15,17 +15,24 @@ const CONFIG={
    <id>-480.webp, <id>-800.webp y <id>-<w>.webp  (los genera tools/optimize-images.py y también te dice w, h y color).
    cat = categoría que se muestra como epígrafe; el visor muestra juntas las fotos de la misma categoría. */
 const PHOTOS=[
-  {id:'pileta',          w:960, h:1280,color:'#396f9b',cat:'Pileta', alt:'Pileta azul con borde de cenefa griega, palmeras y laureles en flor'},
-  {id:'pileta-deck',     w:960, h:1280,color:'#4d6c90',cat:'Pileta', alt:'Pileta con borde de cenefa, deck de madera y palmeras de fondo'},
-  {id:'salon-fogon',     w:1280,h:960, color:'#746d69',cat:'Salón',  alt:'Salón con mesas servidas, sillas y decoración con globos'},
-  {id:'mesa-servida',    w:1280,h:960, color:'#8a837f',cat:'Salón',  alt:'Mesa larga con platos, copas y servilletas listas para el festejo'},
-  {id:'salon-corazones', w:960, h:1280,color:'#78726f',cat:'Salón',  alt:'Mesa principal del salón con globos en forma de corazón'},
-  {id:'galeria-toldo',   w:960, h:1280,color:'#686058',cat:'Afuera', alt:'Galería cubierta con mesa larga y sillas, con la pileta al costado'},
-  {id:'deck-reposeras',  w:960, h:1280,color:'#776b72',cat:'Patio',  alt:'Deck de madera con sillas blancas y mesa ratona'},
-  {id:'patio-jardin',    w:960, h:1280,color:'#737773',cat:'Patio',  alt:'Patio con césped, plantas y una palmera al sol de la tarde'},
-  {id:'juegos',          w:960, h:1280,color:'#707053',cat:'Juegos', alt:'Tobogán verde y hamacas en el sector de juegos del patio'}
+  {id:'pileta',          w:1086,h:1448,color:'#377b9b',cat:'Pileta', alt:'Pileta azul con borde de cenefa griega, palmeras y laureles en flor'},
+  {id:'pileta-techada',  w:1086,h:1448,color:'#547788',cat:'Pileta', alt:'Pileta bajo techo con cortina enrollada, rodeada de palmeras y jardín'},
+  {id:'patio-pileta',    w:1086,h:1448,color:'#547d9c',cat:'Patio',  alt:'Deck junto a la pileta con reposeras blancas y palmera de fondo'},
+  {id:'deck-reposeras',  w:1086,h:1448,color:'#936e51',cat:'Patio',  alt:'Deck de madera con sillas blancas y mesa ratona'},
+  {id:'salon',           w:1086,h:1448,color:'#836a5c',cat:'Salón',  alt:'Salón con varias mesas largas vestidas, listo para un evento'},
+  {id:'salon-luz',       w:1086,h:1448,color:'#866c5d',cat:'Salón',  alt:'Salón luminoso con mesas largas, ventilador de techo y ventanal'},
+  {id:'salon-parrilla',  w:1086,h:1448,color:'#857f7b',cat:'Salón',  alt:'Mesas del salón junto al sector del fogón'},
+  {id:'parrilla',        w:1086,h:1448,color:'#897264',cat:'Salón',  alt:'Fogón de material con parrilla grande, ideal para asados'},
+  {id:'mesa-servida',    w:1280,h:960, color:'#8f7c73',cat:'Salón',  alt:'Mesa larga con platos, copas y servilletas listas para el festejo'},
+  {id:'cocina',          w:1086,h:1448,color:'#877a72',cat:'Cocina', alt:'Cocina industrial equipada, con horno, anafe y lavavajillas'},
+  {id:'freezer-vajilla', w:1086,h:1448,color:'#a79e9a',cat:'Cocina', alt:'Freezer y mueble con vajilla lista para usar'},
+  {id:'galeria-toldo',   w:1086,h:1448,color:'#807060',cat:'Afuera', alt:'Mesas y sillas bajo toldo, al aire libre junto a la pileta'},
+  {id:'juegos-jardin',   w:1086,h:1448,color:'#5d713b',cat:'Juegos', alt:'Juegos de plaza entre palmeras y canteros floridos'},
+  {id:'juegos-parque',   w:1086,h:1448,color:'#638566',cat:'Juegos', alt:'Hamacas, tobogán y calesita en el sector de juegos'},
+  {id:'futbolin',        w:1280,h:960, color:'#9a9c9a',cat:'Juegos', alt:'Metegol para los más grandes'},
+  {id:'trampolin',       w:1086,h:1448,color:'#6c7f69',cat:'Juegos', alt:'Cama saltarina con red de seguridad sobre el césped'}
 ];
-const MOSAIC=['pileta-deck','salon-fogon','patio-jardin','juegos']; /* las 4 fotos que se ven en el mosaico (compu) */
+const MOSAIC=['pileta-techada','salon','parrilla','juegos-jardin']; /* las 4 fotos que se ven en el mosaico (compu) */
 
 /* Video con música. Guardalo en assets/video/quincho.mp4 y se publica solo (ver README).
    Mientras el archivo no exista, la sección muestra "Próximamente". */

@@ -75,14 +75,14 @@
 
 <link rel="preload" href="assets/fonts/bricolage.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/figtree.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/pileta-800.webp" imagesrcset="assets/img/pileta-480.webp 480w, assets/img/pileta-800.webp 800w, assets/img/pileta-960.webp 960w" imagesizes="(min-width: 1000px) 480px, 76vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/img/pileta-800.webp" imagesrcset="assets/img/pileta-480.webp 480w, assets/img/pileta-800.webp 800w, assets/img/pileta-1086.webp 1086w" imagesizes="(min-width: 1000px) 480px, 76vw" fetchpriority="high">
 <link rel="stylesheet" href="css/base.css?v=20261012g">
 <link rel="stylesheet" href="css/sections.css?v=20261012g">
 <link rel="stylesheet" href="css/gallery.css?v=20261012g">
-<link rel="stylesheet" href="css/motion.css?v=20261012g">
+<link rel="stylesheet" href="css/motion.css?v=20261025a">
 <!-- helpers y boot son chiquitos y van primero: marcan que hay JavaScript y arrancan la pantalla de carga -->
 <script src="js/helpers.js?v=20261012g"></script>
-<script src="js/boot.js?v=20261012g"></script>
+<script src="js/boot.js?v=20261025a"></script>
 <script src="js/data.js?v=20261012g" defer></script>
 <script src="js/ui.js?v=20261012g" defer></script>
 <script src="js/gallery.js?v=20261012g" defer></script>
@@ -128,26 +128,37 @@
   </defs>
 </svg>
 
-<!-- pantalla de carga: la pileta se llena mientras se preparan las fuentes y la página -->
-<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Cargando Quincho Paraíso">
+<!-- Una pequeña postal de verano. Solo espera las fuentes y la foto principal. -->
+<div class="loader" id="loader" aria-label="Bienvenido a Quincho Paraíso">
+  <div class="loader__top" aria-hidden="true">
+    <span>QUINCHO PARAÍSO</span><span>BAHÍA BLANCA, AR</span>
+  </div>
   <div class="loader__in">
-    <div class="loader__mark">
-      <svg viewBox="0 0 64 64" aria-hidden="true">
-        <defs><clipPath id="ldClip"><circle cx="32" cy="32" r="30"/></clipPath></defs>
-        <circle cx="32" cy="32" r="30" fill="#ffc233"/>
-        <g clip-path="url(#ldClip)">
-          <path d="M29.5 40C29.5 29 30 20 33.5 11" stroke="#0b2239" stroke-width="3.6" fill="none" stroke-linecap="round"/>
-          <path d="M33.5 11C28 7.5 21 8 16 13M33.5 11C30 5 24 4 18 6M33.5 11C40 7.5 47 9 52 15M33.5 11C38 5 44 5 49 8M33.5 11C34 6 38 3 43 3" stroke="#0b2239" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-          <g class="loader__water">
-            <path d="M-2 37q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1a82e0"/>
-            <path d="M-2 45q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1065b8"/>
-            <path d="M-2 53q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#0a4f9a"/>
-          </g>
-        </g>
-      </svg>
+    <div class="loader__scene" aria-hidden="true">
+      <div class="loader__portal">
+        <div class="loader__sun"></div>
+        <svg class="loader__palm" viewBox="0 0 120 150" fill="none">
+          <path d="M57 150C53 111 56 74 69 39" stroke="currentColor" stroke-width="5"/>
+          <path d="M69 39C45 18 20 28 9 49C31 39 48 40 69 39ZM69 39C48 13 33 9 16 17C37 20 53 29 69 39ZM69 39C85 17 107 22 119 43C100 34 85 35 69 39ZM69 39C72 13 88 4 106 9C89 17 79 26 69 39ZM69 39C56 25 53 9 59 1C66 12 71 25 69 39Z" fill="currentColor"/>
+        </svg>
+        <div class="loader__water">
+          <svg class="loader__wave loader__wave--back" viewBox="0 0 800 180" preserveAspectRatio="none"><path d="M0 24Q50 0 100 24T200 24T300 24T400 24T500 24T600 24T700 24T800 24V180H0Z"/></svg>
+          <svg class="loader__wave loader__wave--front" viewBox="0 0 800 180" preserveAspectRatio="none"><path d="M0 24Q50 0 100 24T200 24T300 24T400 24T500 24T600 24T700 24T800 24V180H0Z"/></svg>
+          <span class="loader__glint"></span>
+        </div>
+      </div>
+      <svg class="loader__spark loader__spark--a" viewBox="0 0 32 32"><path d="M16 0C18 12 20 14 32 16C20 18 18 20 16 32C14 20 12 18 0 16C12 14 14 12 16 0Z"/></svg>
+      <svg class="loader__spark loader__spark--b" viewBox="0 0 32 32"><path d="M16 0C18 12 20 14 32 16C20 18 18 20 16 32C14 20 12 18 0 16C12 14 14 12 16 0Z"/></svg>
     </div>
-    <p class="loader__name">Quincho <b>Paraíso</b></p>
-    <div class="loader__bar" aria-hidden="true"><i></i></div>
+    <p class="loader__name"><span class="loader__eyebrow">BIENVENIDOS A</span><span class="loader__word"><b>Paraíso<span class="loader__dot">.</span></b></span></p>
+    <p class="loader__tagline">Un lugar para estar bien.</p>
+  </div>
+  <div class="loader__bottom">
+    <div class="loader__progress">
+      <p class="loader__status" id="loaderStatus" role="status">Preparando tu lugar…</p>
+      <div class="loader__bar" aria-hidden="true"><i></i></div>
+    </div>
+    <button class="loader__skip" id="loaderSkip" type="button">Entrar <span aria-hidden="true">↗</span></button>
   </div>
 </div>
 
@@ -202,11 +213,11 @@
     </div>
 
     <div class="hero__art">
-      <figure class="arch arch--a ph" style="--ph:#396f9b" data-par="-.05">
-        <img id="heroImg" src="assets/img/pileta-800.webp" srcset="assets/img/pileta-480.webp 480w, assets/img/pileta-800.webp 800w, assets/img/pileta-960.webp 960w" sizes="(min-width: 1000px) 480px, 76vw" width="960" height="1280" alt="Pileta azul con borde de cenefa griega, palmeras y laureles en flor" fetchpriority="high" decoding="async">
+      <figure class="arch arch--a ph" style="--ph:#377b9b" data-par="-.05">
+        <img id="heroImg" src="assets/img/pileta-800.webp" srcset="assets/img/pileta-480.webp 480w, assets/img/pileta-800.webp 800w, assets/img/pileta-1086.webp 1086w" sizes="(min-width: 1000px) 480px, 76vw" width="1086" height="1448" alt="Pileta azul con borde de cenefa griega, palmeras y laureles en flor" fetchpriority="high" decoding="async">
       </figure>
-      <figure class="arch arch--b ph" style="--ph:#776b72" data-par=".1">
-        <img src="assets/img/deck-reposeras-480.webp" srcset="assets/img/deck-reposeras-480.webp 480w, assets/img/deck-reposeras-800.webp 800w" sizes="(min-width: 1000px) 230px, 38vw" width="960" height="1280" alt="Deck de madera con sillas blancas y mesa ratona" loading="lazy" decoding="async">
+      <figure class="arch arch--b ph" style="--ph:#936e51" data-par=".1">
+        <img src="assets/img/deck-reposeras-480.webp" srcset="assets/img/deck-reposeras-480.webp 480w, assets/img/deck-reposeras-800.webp 800w, assets/img/deck-reposeras-1086.webp 1086w" sizes="(min-width: 1000px) 230px, 38vw" width="1086" height="1448" alt="Deck de madera con sillas blancas y mesa ratona" loading="lazy" decoding="async">
       </figure>
       <div class="sticker sticker--a" aria-hidden="true" data-par=".12"><svg class="i" viewBox="0 0 48 48"><use href="#i-people"/></svg><b>30</b><span>personas</span></div>
       <div class="badge" aria-hidden="true" data-par=".08">
@@ -248,60 +259,78 @@
         <div class="tour__intro">
           <p class="eyebrow">El lugar</p>
           <h2 id="tour-t">Recorré <em>el quincho</em></h2>
-          <p class="lead">Adentro hay mesas, sillas y un fogón muy grande para los asados. Afuera te esperan la pileta, un patio enorme, juegos para los chicos y toldos por si preferís comer al aire libre.</p>
+          <p class="lead">Adentro hay mesas, sillas, una cocina industrial y un fogón muy grande para los asados. Afuera te esperan la pileta, un patio enorme, juegos para los chicos y toldos por si preferís comer al aire libre.</p>
           <p class="tour__hint"><span>Seguí bajando</span><svg class="i" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-go"/></svg></p>
         </div>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="salon-fogon" style="--ph:#746d69" aria-label="Ampliar foto: el salón">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/salon-fogon-800.webp" data-srcset="assets/img/salon-fogon-480.webp 480w, assets/img/salon-fogon-800.webp 800w, assets/img/salon-fogon-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Salón con mesas servidas, sillas y decoración con globos" decoding="async"><noscript><img src="assets/img/salon-fogon-800.webp" srcset="assets/img/salon-fogon-480.webp 480w, assets/img/salon-fogon-800.webp 800w, assets/img/salon-fogon-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Salón con mesas servidas, sillas y decoración con globos" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="salon" style="--ph:#836a5c" aria-label="Ampliar foto: el salón">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/salon-800.webp" data-srcset="assets/img/salon-480.webp 480w, assets/img/salon-800.webp 800w, assets/img/salon-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Salón con varias mesas largas vestidas, listo para un evento" decoding="async"><noscript><img src="assets/img/salon-800.webp" srcset="assets/img/salon-480.webp 480w, assets/img/salon-800.webp 800w, assets/img/salon-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Salón con varias mesas largas vestidas, listo para un evento" loading="lazy" decoding="async"></noscript>
           </button>
           <span class="stop__n" aria-hidden="true">01</span>
           <h3>El salón</h3>
-          <p>Mesas y sillas para todos tus invitados. Adentro también está el fogón, muy grande, ideal para los asados.</p>
+          <p>Mesas y sillas para todos tus invitados, bajo techo de madera.</p>
         </article>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="mesa-servida" style="--ph:#8a837f" aria-label="Ampliar foto: la mesa lista">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/mesa-servida-800.webp" data-srcset="assets/img/mesa-servida-480.webp 480w, assets/img/mesa-servida-800.webp 800w, assets/img/mesa-servida-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Mesa larga con platos, copas y servilletas listas para el festejo" decoding="async"><noscript><img src="assets/img/mesa-servida-800.webp" srcset="assets/img/mesa-servida-480.webp 480w, assets/img/mesa-servida-800.webp 800w, assets/img/mesa-servida-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Mesa larga con platos, copas y servilletas listas para el festejo" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="cocina" style="--ph:#877a72" aria-label="Ampliar foto: la cocina">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/cocina-800.webp" data-srcset="assets/img/cocina-480.webp 480w, assets/img/cocina-800.webp 800w, assets/img/cocina-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Cocina industrial equipada, con horno, anafe y lavavajillas" decoding="async"><noscript><img src="assets/img/cocina-800.webp" srcset="assets/img/cocina-480.webp 480w, assets/img/cocina-800.webp 800w, assets/img/cocina-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Cocina industrial equipada, con horno, anafe y lavavajillas" loading="lazy" decoding="async"></noscript>
           </button>
           <span class="stop__n" aria-hidden="true">02</span>
+          <h3>La cocina</h3>
+          <p>Cocina industrial equipada para que cocinar sea más fácil.</p>
+        </article>
+
+        <article class="stop">
+          <button class="stop__photo ph" type="button" data-open="parrilla" style="--ph:#897264" aria-label="Ampliar foto: el fogón">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/parrilla-800.webp" data-srcset="assets/img/parrilla-480.webp 480w, assets/img/parrilla-800.webp 800w, assets/img/parrilla-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Fogón de material con parrilla grande, ideal para asados" decoding="async"><noscript><img src="assets/img/parrilla-800.webp" srcset="assets/img/parrilla-480.webp 480w, assets/img/parrilla-800.webp 800w, assets/img/parrilla-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Fogón de material con parrilla grande, ideal para asados" loading="lazy" decoding="async"></noscript>
+          </button>
+          <span class="stop__n" aria-hidden="true">03</span>
+          <h3>El fogón</h3>
+          <p>Muy grande, ideal para los asados y los momentos inolvidables.</p>
+        </article>
+
+        <article class="stop">
+          <button class="stop__photo ph" type="button" data-open="mesa-servida" style="--ph:#8f7c73" aria-label="Ampliar foto: la mesa lista">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/mesa-servida-800.webp" data-srcset="assets/img/mesa-servida-480.webp 480w, assets/img/mesa-servida-800.webp 800w, assets/img/mesa-servida-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Mesa larga con platos, copas y servilletas listas para el festejo" decoding="async"><noscript><img src="assets/img/mesa-servida-800.webp" srcset="assets/img/mesa-servida-480.webp 480w, assets/img/mesa-servida-800.webp 800w, assets/img/mesa-servida-1280.webp 1280w" sizes="(min-width: 901px) 390px, 78vw" width="1280" height="960" alt="Mesa larga con platos, copas y servilletas listas para el festejo" loading="lazy" decoding="async"></noscript>
+          </button>
+          <span class="stop__n" aria-hidden="true">04</span>
           <h3>La mesa lista</h3>
           <p>Vajilla completa: todo lo que necesitás para servir tu evento sin llevar nada de tu casa.</p>
         </article>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="galeria-toldo" style="--ph:#686058" aria-label="Ampliar foto: la galería con toldo">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/galeria-toldo-800.webp" data-srcset="assets/img/galeria-toldo-480.webp 480w, assets/img/galeria-toldo-800.webp 800w, assets/img/galeria-toldo-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Galería cubierta con mesa larga y sillas, con la pileta al costado" decoding="async"><noscript><img src="assets/img/galeria-toldo-800.webp" srcset="assets/img/galeria-toldo-480.webp 480w, assets/img/galeria-toldo-800.webp 800w, assets/img/galeria-toldo-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Galería cubierta con mesa larga y sillas, con la pileta al costado" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="galeria-toldo" style="--ph:#807060" aria-label="Ampliar foto: afuera, bajo toldo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/galeria-toldo-800.webp" data-srcset="assets/img/galeria-toldo-480.webp 480w, assets/img/galeria-toldo-800.webp 800w, assets/img/galeria-toldo-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Mesas y sillas bajo toldo, al aire libre junto a la pileta" decoding="async"><noscript><img src="assets/img/galeria-toldo-800.webp" srcset="assets/img/galeria-toldo-480.webp 480w, assets/img/galeria-toldo-800.webp 800w, assets/img/galeria-toldo-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Mesas y sillas bajo toldo, al aire libre junto a la pileta" loading="lazy" decoding="async"></noscript>
           </button>
-          <span class="stop__n" aria-hidden="true">03</span>
+          <span class="stop__n" aria-hidden="true">05</span>
           <h3>Afuera, bajo toldo</h3>
           <p>Mesa, sillas y toldos por si preferís comer al aire libre, con la pileta a un costado.</p>
         </article>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="pileta-deck" style="--ph:#4d6c90" aria-label="Ampliar foto: la pileta">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/pileta-deck-800.webp" data-srcset="assets/img/pileta-deck-480.webp 480w, assets/img/pileta-deck-800.webp 800w, assets/img/pileta-deck-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Pileta con borde de cenefa, deck de madera y palmeras de fondo" decoding="async"><noscript><img src="assets/img/pileta-deck-800.webp" srcset="assets/img/pileta-deck-480.webp 480w, assets/img/pileta-deck-800.webp 800w, assets/img/pileta-deck-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Pileta con borde de cenefa, deck de madera y palmeras de fondo" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="pileta-techada" style="--ph:#547788" aria-label="Ampliar foto: la pileta">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/pileta-techada-800.webp" data-srcset="assets/img/pileta-techada-480.webp 480w, assets/img/pileta-techada-800.webp 800w, assets/img/pileta-techada-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Pileta bajo techo con cortina enrollada, rodeada de palmeras y jardín" decoding="async"><noscript><img src="assets/img/pileta-techada-800.webp" srcset="assets/img/pileta-techada-480.webp 480w, assets/img/pileta-techada-800.webp 800w, assets/img/pileta-techada-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Pileta bajo techo con cortina enrollada, rodeada de palmeras y jardín" loading="lazy" decoding="async"></noscript>
           </button>
-          <span class="stop__n" aria-hidden="true">04</span>
+          <span class="stop__n" aria-hidden="true">06</span>
           <h3>La pileta</h3>
           <p>Para refrescarse y disfrutar el día, con el deck y el verde alrededor.</p>
         </article>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="patio-jardin" style="--ph:#737773" aria-label="Ampliar foto: el patio">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/patio-jardin-800.webp" data-srcset="assets/img/patio-jardin-480.webp 480w, assets/img/patio-jardin-800.webp 800w, assets/img/patio-jardin-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Patio con césped, plantas y una palmera al sol de la tarde" decoding="async"><noscript><img src="assets/img/patio-jardin-800.webp" srcset="assets/img/patio-jardin-480.webp 480w, assets/img/patio-jardin-800.webp 800w, assets/img/patio-jardin-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Patio con césped, plantas y una palmera al sol de la tarde" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="patio-pileta" style="--ph:#547d9c" aria-label="Ampliar foto: el patio">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/patio-pileta-800.webp" data-srcset="assets/img/patio-pileta-480.webp 480w, assets/img/patio-pileta-800.webp 800w, assets/img/patio-pileta-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Deck junto a la pileta con reposeras blancas y palmera de fondo" decoding="async"><noscript><img src="assets/img/patio-pileta-800.webp" srcset="assets/img/patio-pileta-480.webp 480w, assets/img/patio-pileta-800.webp 800w, assets/img/patio-pileta-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Deck junto a la pileta con reposeras blancas y palmera de fondo" loading="lazy" decoding="async"></noscript>
           </button>
-          <span class="stop__n" aria-hidden="true">05</span>
+          <span class="stop__n" aria-hidden="true">07</span>
           <h3>El patio</h3>
           <p>Un patio amplio con espacio verde y reposeras para descansar al sol.</p>
         </article>
 
         <article class="stop">
-          <button class="stop__photo ph" type="button" data-open="juegos" style="--ph:#707053" aria-label="Ampliar foto: los juegos">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/juegos-800.webp" data-srcset="assets/img/juegos-480.webp 480w, assets/img/juegos-800.webp 800w, assets/img/juegos-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Tobogán verde y hamacas en el sector de juegos del patio" decoding="async"><noscript><img src="assets/img/juegos-800.webp" srcset="assets/img/juegos-480.webp 480w, assets/img/juegos-800.webp 800w, assets/img/juegos-960.webp 960w" sizes="(min-width: 901px) 390px, 78vw" width="960" height="1280" alt="Tobogán verde y hamacas en el sector de juegos del patio" loading="lazy" decoding="async"></noscript>
+          <button class="stop__photo ph" type="button" data-open="juegos-jardin" style="--ph:#5d713b" aria-label="Ampliar foto: los juegos">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="assets/img/juegos-jardin-800.webp" data-srcset="assets/img/juegos-jardin-480.webp 480w, assets/img/juegos-jardin-800.webp 800w, assets/img/juegos-jardin-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Juegos de plaza entre palmeras y canteros floridos" decoding="async"><noscript><img src="assets/img/juegos-jardin-800.webp" srcset="assets/img/juegos-jardin-480.webp 480w, assets/img/juegos-jardin-800.webp 800w, assets/img/juegos-jardin-1086.webp 1086w" sizes="(min-width: 901px) 390px, 78vw" width="1086" height="1448" alt="Juegos de plaza entre palmeras y canteros floridos" loading="lazy" decoding="async"></noscript>
           </button>
-          <span class="stop__n" aria-hidden="true">06</span>
+          <span class="stop__n" aria-hidden="true">08</span>
           <h3>Juegos para los chicos</h3>
           <p>Juegos de plaza, metegol y cama saltarina para que los más chicos se diviertan.</p>
         </article>
@@ -313,7 +342,7 @@
       </div>
 
       <div class="tour__ui" aria-hidden="true">
-        <span class="tour__count num"><b id="tourNow">01</b> / 06</span>
+        <span class="tour__count num"><b id="tourNow">01</b> / 08</span>
         <div class="tour__bar"><i id="tourBar"></i></div>
       </div>
       <div class="tour__arrows">
@@ -386,15 +415,15 @@
       <div class="gmain">
         <div class="gtrack" id="gtrack" tabindex="0" role="group" aria-label="Fotos del quincho"></div>
         <div class="gc" id="gcap"></div>
-        <div class="gcount" id="gcount" aria-live="polite">01 / 09</div>
+        <div class="gcount" id="gcount" aria-live="polite">01 / 16</div>
       </div>
       <div class="gthumbs" id="gthumbs" role="group" aria-label="Elegir foto"></div>
     </div>
 
     <div class="gfoot" data-reveal>
       <p class="gtag">Un lugar para festejar sin apuros.</p>
-      <span class="gnum" id="gnum">01 / 09</span>
-      <button class="btn btn--ink gbtn" type="button" data-open="cur"><span id="gbtnTxt">Ver las 9 fotos</span><svg class="i i-go" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-go"/></svg></button>
+      <span class="gnum" id="gnum">01 / 16</span>
+      <button class="btn btn--ink gbtn" type="button" data-open="cur"><span id="gbtnTxt">Ver las 16 fotos</span><svg class="i i-go" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-go"/></svg></button>
     </div>
   </div>
 </section>
@@ -414,7 +443,7 @@
 
     <!-- Para publicar el video: guardalo en assets/video/quincho.mp4 (ver README). Mientras no esté, se muestra "Próximamente". -->
     <div class="vframe" id="vframe" data-reveal>
-      <img class="vframe__poster ph" id="vposter" src="assets/img/pileta-deck-800.webp" srcset="assets/img/pileta-deck-480.webp 480w, assets/img/pileta-deck-800.webp 800w, assets/img/pileta-deck-960.webp 960w" sizes="(min-width: 900px) 560px, 92vw" width="960" height="1280" alt="" style="--ph:#4d6c90" loading="lazy" fetchpriority="low" decoding="async">
+      <img class="vframe__poster ph" id="vposter" src="assets/img/pileta-techada-800.webp" srcset="assets/img/pileta-techada-480.webp 480w, assets/img/pileta-techada-800.webp 800w, assets/img/pileta-techada-1086.webp 1086w" sizes="(min-width: 900px) 560px, 92vw" width="1086" height="1448" alt="" style="--ph:#547788" loading="lazy" fetchpriority="low" decoding="async">
       <div class="vframe__shade" aria-hidden="true"></div>
       <div class="vframe__badge" aria-hidden="true"><span class="eq"><i></i><i></i><i></i><i></i></span>Con música</div>
       <button class="vframe__play" id="vplay" type="button" aria-label="Reproducir el video del quincho"><svg class="i" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-play"/></svg></button>
