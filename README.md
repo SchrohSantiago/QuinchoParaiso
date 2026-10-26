@@ -163,12 +163,8 @@ y convertí `og.png` a JPG de calidad ~85 guardándolo como `assets/og-image.jpg
 El sitio es estático: no hay build ni dependencias. En Vercel: **Add New → Project → importar el repo** y dejar todo por defecto
 (*Framework Preset: Other*, sin Build Command, *Output Directory* vacío). Cada `git push` a `main` publica solo.
 
-**Antes de publicar con dominio propio**, reemplazá `https://quinchoparaiso.vercel.app` (es un dominio de ejemplo) por el real en `index.html`
-(canonical, `og:url`, `og:image`, `twitter:image` y los bloques `ld+json`), `robots.txt` y `sitemap.xml`. Ejemplo (Git Bash):
-
-```bash
-grep -rl "quinchoparaiso.vercel.app" index.html robots.txt sitemap.xml | xargs sed -i 's#https://quinchoparaiso.vercel.app#https://TU-DOMINIO.com#g'
-```
+El dominio principal es `https://quinchoparaiso.com/`. Ya está declarado en el canonical, las tarjetas para compartir,
+los datos estructurados, `robots.txt` y `sitemap.xml`. Al publicar, asociá ese dominio al proyecto de Vercel.
 
 **Después de publicar**
 

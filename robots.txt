@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://quinchoparaiso.vercel.app/sitemap.xml
+Sitemap: https://quinchoparaiso.com/sitemap.xml
