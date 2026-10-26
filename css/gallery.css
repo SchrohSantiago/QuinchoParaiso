@@ -1,0 +1,108 @@
+/* ==========================================================================
+   gallery.css · galería y visor de fotos
+   Mismo funcionamiento que el visor de Terra Ventus:
+     · compu: mosaico + visor grande (.lb)
+     · celular: carrusel con miniaturas + visor a pantalla completa (.goverlay)
+   ========================================================================== */
+.gallery{background:var(--aqua-100)}
+.ghead{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:clamp(2rem,4.5vw,3.2rem)}
+.ghead h2{margin-top:1rem;max-width:15ch}
+.glink{margin-bottom:.5rem;white-space:nowrap}
+
+/* foto en un botón */
+.gi{position:relative;display:block;padding:0;border:0;overflow:hidden;border-radius:var(--r-m);background-color:var(--ph,#4d6c90);color:inherit;font:inherit;text-align:left;cursor:zoom-in}
+.gi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.gi:focus-visible{outline:3px solid var(--pool-500);outline-offset:3px}
+.gc{position:absolute;left:1rem;bottom:1rem;z-index:1;padding:.4rem .95rem;border-radius:999px;background:rgba(255,248,236,.94);color:var(--ink);font-size:.8rem;font-weight:700;letter-spacing:.02em;line-height:1.2}
+
+/* mosaico (compu) */
+.gmos{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:1rem;aspect-ratio:1.8}
+.gmos .gi:nth-child(1){grid-column:1;grid-row:1/3}
+.gmos .gi:nth-child(2){grid-column:2;grid-row:1}
+.gmos .gi:nth-child(3){grid-column:3;grid-row:1/3}
+.gmos .gi:nth-child(4){grid-column:2;grid-row:2}
+.gmore{position:absolute;inset:0;z-index:2;display:grid;place-content:center;gap:.2rem;text-align:center;background:rgba(6,26,44,.58);color:#fff;font-family:var(--display);font-weight:800;font-size:clamp(2rem,3.6vw,3rem);line-height:1;transition:background-color .4s}
+.gmore small{font:600 .85rem/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:.9}
+@media(hover:hover){
+  .gi:hover img{transform:scale(1.05)}
+  .gi:hover .gmore{background:rgba(16,101,184,.7)}
+}
+.gview{display:none}
+.gfoot{display:flex;align-items:center;gap:1.6rem;margin-top:1.8rem;padding-top:1.5rem;border-top:2px solid rgba(11,34,57,.18)}
+.gtag{margin-right:auto;font-family:var(--display);font-weight:700;font-size:clamp(1.3rem,2.2vw,1.8rem);line-height:1.1}
+.gnum{font-size:.82rem;font-weight:700;letter-spacing:.18em;color:var(--pool-600)}
+
+/* carrusel (celular) */
+@media(max-width:900px){
+  .ghead{display:block;margin-bottom:1.6rem}
+  .glink,.gmos,.gtag,.gnum{display:none}
+  .gview{display:block}
+  .gtrack{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r-m)}
+  .gtrack::-webkit-scrollbar{display:none}
+  .gtrack .gi{flex:0 0 100%;scroll-snap-align:center;aspect-ratio:4/5;cursor:zoom-in}
+  .gmain{position:relative}
+  .gmain .gc{pointer-events:none}
+  .gcount{position:absolute;right:1rem;bottom:1rem;z-index:2;padding:.4rem .8rem;border-radius:999px;background:rgba(6,26,44,.7);color:#fff;font-size:.78rem;font-weight:700;letter-spacing:.14em;pointer-events:none}
+  .gthumbs{display:flex;gap:.55rem;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding:.8rem 3px 3px;margin:0 -3px}
+  .gthumbs::-webkit-scrollbar{display:none}
+  .gthumbs button{position:relative;flex:0 0 calc((100% - 1.1rem)/3);aspect-ratio:1.3;overflow:hidden;scroll-snap-align:start;padding:0;border-radius:var(--r-s);background:var(--pool-600);outline:3px solid transparent;outline-offset:2px;transition:outline-color .3s}
+  .gthumbs button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .gthumbs button[aria-current="true"]{outline-color:var(--ink)}
+  .gfoot{display:block;margin-top:1.2rem;padding:0;border:0}
+  .gbtn{width:100%}
+}
+
+/* visor a pantalla completa en celular */
+.goverlay{display:none;position:fixed;inset:0;z-index:200;flex-direction:column;padding:0 clamp(1rem,5vw,2rem);overflow-x:hidden;overflow-y:auto;background:var(--pool-950);color:#fff;opacity:0;transition:opacity .35s}
+.goverlay.open{display:flex}
+.goverlay.show{opacity:1}
+body.gvopen{overflow:hidden}
+.gv-head{display:flex;justify-content:space-between;align-items:flex-start;flex-shrink:0;padding:1.5rem 0 .8rem}
+.gv-brand{margin:0;padding-left:.2rem;font-family:var(--display);font-weight:800;font-size:1.6rem;line-height:1.05;letter-spacing:-.01em;color:var(--sun)}
+.gv-close,.gv-arrow{display:grid;place-items:center;border-radius:50%;border:2px solid rgba(255,255,255,.75);color:#fff;transition:background-color .3s,color .3s,border-color .3s}
+.gv-close{width:46px;height:46px}
+.gv-arrow{width:48px;height:48px}
+.gv-close:hover,.gv-arrow:hover{background:var(--sun);border-color:var(--sun);color:var(--ink)}
+.gv-label{flex-shrink:0;margin:clamp(1.4rem,6vh,3.2rem) 0 1rem;padding-left:.2rem;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.65)}
+.gov-main{position:relative;flex-shrink:0}
+.gov-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;border-radius:var(--r-m)}
+.gov-track::-webkit-scrollbar{display:none}
+.gov-track .gi{flex:0 0 100%;height:min(60vh,560px);scroll-snap-align:center;background:#081c30;cursor:default}
+@supports (height:100svh){.gov-track .gi{height:min(60svh,560px)}}
+.gov-track .gi img{object-fit:contain}
+.gv-info{display:flex;justify-content:space-between;align-items:baseline;flex-shrink:0;padding:.9rem 0 0}
+.gov-cap{font-family:var(--display);font-weight:800;font-size:1.7rem;line-height:1}
+.gov-cnt{font-size:.82rem;font-weight:700;letter-spacing:.16em;color:rgba(255,255,255,.75)}
+.gv-nav{display:flex;align-items:center;justify-content:center;flex-shrink:0;gap:1rem;padding:1.2rem 0}
+.gv-hint{font-size:.95rem;font-weight:500;color:rgba(255,255,255,.6)}
+.gov-thumbs{display:flex;flex-shrink:0;gap:.55rem;overflow-x:auto;scrollbar-width:none;scroll-snap-type:x proximity;padding:.3rem 3px 3px;margin:0 -3px}
+.gov-thumbs::-webkit-scrollbar{display:none}
+.gov-thumbs button{position:relative;flex:0 0 calc((100% - 1.65rem)/4);aspect-ratio:1.2;overflow:hidden;scroll-snap-align:start;padding:0;border-radius:var(--r-s);background:var(--pool-600);outline:3px solid transparent;outline-offset:2px;opacity:.8;transition:outline-color .3s,opacity .3s}
+.gov-thumbs button img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gov-thumbs button[aria-current="true"]{outline-color:#fff;opacity:1}
+.gv-cat{flex-shrink:0;margin:0;padding:1.2rem 0 1.6rem;text-align:center;font-size:.95rem;font-weight:500;color:rgba(255,255,255,.55)}
+@media(min-width:901px){.goverlay{display:none!important}}
+
+/* visor grande en compu */
+.lb{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:clamp(3.5rem,8vh,5rem) clamp(.8rem,6vw,5rem) clamp(1rem,4vh,2rem);background:rgba(6,26,44,.95);opacity:0;transition:opacity .35s}
+.lb[hidden]{display:none}
+.lb.on{opacity:1}
+.lb-f{display:flex;flex-direction:column;gap:.9rem;width:100%;max-width:1200px;max-height:100%}
+.lb-img{position:relative;width:100%;aspect-ratio:16/10;max-height:calc(100vh - 11rem);overflow:hidden;border-radius:var(--r-m);background:#081c30;touch-action:pan-y}
+.lb-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .35s ease}
+.lb-img img.loaded{opacity:1}
+.lb figcaption{display:flex;justify-content:space-between;align-items:baseline;color:#fff;font-family:var(--display);font-weight:700;font-size:1.5rem}
+.lb figcaption b{font-family:var(--sans);font-weight:700;font-size:.82rem;letter-spacing:.18em;opacity:.8}
+.lb button{position:absolute;display:grid;place-items:center;border-radius:50%;color:#fff;background:rgba(255,255,255,.12);transition:background-color .3s,color .3s}
+.lb button:hover{background:var(--sun);color:var(--ink)}
+.lb-x{top:clamp(.8rem,2vw,1.4rem);right:clamp(.8rem,2vw,1.4rem);width:48px;height:48px}
+.lb-n{top:50%;width:54px;height:54px;margin-top:-27px}
+.lb-n.prev{left:clamp(.4rem,1.5vw,1.4rem)}
+.lb-n.next{right:clamp(.4rem,1.5vw,1.4rem)}
+.lb-n .i,.lb-x .i{width:22px;height:22px}
+@media(max-width:700px){
+  .lb-n{top:auto;bottom:.9rem;margin:0;width:48px;height:48px}
+  .lb-n.prev{left:auto;right:4.6rem}.lb-n.next{right:1rem}
+  .lb figcaption{padding-right:6.5rem;font-size:1.3rem}
+}
+body.lbopen{overflow:hidden}

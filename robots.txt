@@ -1,0 +1,6 @@
+# Quincho Paraíso · robots.txt
+# (no se bloquean /css ni /js: Google los necesita para "ver" la página igual que un visitante)
+User-agent: *
+Allow: /
+
+Sitemap: https://quinchoparaiso.vercel.app/sitemap.xml

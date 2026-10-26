@@ -1,0 +1,6 @@
+Poné acá el video con música del quincho:
+
+    quincho.mp4      (MP4 con video H.264 y audio AAC)
+
+Apenas el archivo exista, la sección "Video" de la página lo reproduce sola
+(mientras no esté, muestra "Próximamente"). Los pasos para prepararlo livianito están en el README.

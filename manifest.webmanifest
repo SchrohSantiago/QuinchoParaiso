@@ -1,0 +1,16 @@
+{
+  "name": "Quincho Paraíso · Quincho con pileta en Bahía Blanca",
+  "short_name": "Quincho Paraíso",
+  "description": "Quincho con pileta, fogón y juegos para festejos de hasta 30 personas en Bahía Blanca. Alquiler por 8 horas.",
+  "lang": "es-AR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "browser",
+  "background_color": "#0a2b4a",
+  "theme_color": "#0a2b4a",
+  "icons": [
+    { "src": "assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "assets/icons/icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

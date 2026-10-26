@@ -1,0 +1,7 @@
+/* error.css · estilos de la página 404 (usa las variables y los botones de base.css) */
+body{display:grid;place-items:center;min-height:100vh;padding:2rem;text-align:center;color:var(--cream);
+  background:radial-gradient(120% 90% at 50% 20%,var(--pool-800) 0%,var(--pool-900) 55%,var(--pool-950) 100%)}
+.err{display:grid;justify-items:center;gap:.4rem;max-width:30rem}
+.err img{width:96px;height:96px;margin-bottom:1.2rem;border-radius:50%;box-shadow:0 0 0 4px rgba(255,194,51,.25),0 18px 40px rgba(0,0,0,.45)}
+.err h1{font-size:clamp(2.3rem,8vw,3.6rem);line-height:1}
+.err p{margin:.7rem 0 1.6rem;color:rgba(255,248,236,.8)}

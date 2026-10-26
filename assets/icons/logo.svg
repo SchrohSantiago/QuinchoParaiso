@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <title>Quincho Paraíso</title>
+  <defs><clipPath id="c"><circle cx="32" cy="32" r="30"/></clipPath></defs>
+  <circle cx="32" cy="32" r="30" fill="#ffc233"/>
+  <g clip-path="url(#c)">
+    <path d="M29.5 40C29.5 29 30 20 33.5 11" stroke="#0b2239" stroke-width="3.6" fill="none" stroke-linecap="round"/>
+    <path d="M33.5 11C28 7.5 21 8 16 13M33.5 11C30 5 24 4 18 6M33.5 11C40 7.5 47 9 52 15M33.5 11C38 5 44 5 49 8M33.5 11C34 6 38 3 43 3" stroke="#0b2239" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+    <path d="M-2 37q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1a82e0"/>
+    <path d="M-2 45q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#1065b8"/>
+    <path d="M-2 53q8-5 17 0t17 0 17 0 17 0V66H-2Z" fill="#0a4f9a"/>
+  </g>
+</svg>

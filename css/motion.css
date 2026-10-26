@@ -1,0 +1,104 @@
+/* ==========================================================================
+   motion.css · todas las animaciones en un solo lugar
+   Criterio (igual que en Terra Ventus): se anima SOLO transform/opacity (los resuelve la GPU),
+   lo que no está en pantalla se pausa, y todo se apaga con "reducir movimiento" y en equipos lentos.
+   Las pocas animaciones que hay, en orden de importancia:
+     1. entrada del hero (una vez)      2. recorrido que se desliza con el scroll (en scroll.js)
+     3. olas del hero (bucle lento)     4. aparición de cada bloque al bajar (una vez)
+     5. íconos que se dibujan (una vez) 6. ecualizador del video (solo mientras suena)
+   ========================================================================== */
+
+/* sin JavaScript no hay pantalla de carga ni nada escondido esperando animarse */
+html.no-js .loader{display:none}
+
+/* ---------- pantalla de carga: la pileta se llena ---------- */
+.loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;color:var(--cream);
+  background:radial-gradient(120% 90% at 50% 25%,var(--pool-800) 0%,var(--pool-900) 55%,var(--pool-950) 100%);
+  transition:opacity .7s var(--ease),visibility .7s;
+  animation:ld-failsafe .01s 10s forwards} /* red de seguridad: si el script falla, a los 10 s igual se abre */
+html.is-ready .loader{opacity:0;visibility:hidden;pointer-events:none}
+html.no-loader .loader{display:none}
+html.js:not(.is-ready){overflow:hidden;animation:ld-unlock .01s 10s forwards}
+.loader__in{display:grid;justify-items:center;gap:1.1rem;padding:2rem;text-align:center}
+.loader__mark{width:clamp(96px,26vw,132px);aspect-ratio:1;filter:drop-shadow(0 18px 36px rgba(0,0,0,.45));animation:ld-in .9s var(--ease-out) both}
+.loader__mark svg{width:100%;height:100%}
+.loader__water{transform:translateY(calc((1 - var(--p,0))*34px));transition:transform .7s var(--ease)}
+.loader__name{font-family:var(--display);font-weight:700;font-size:clamp(1.5rem,6vw,2rem);line-height:1;letter-spacing:-.01em;animation:ld-up .8s .2s var(--ease-out) both}
+.loader__name b{color:var(--sun);font-weight:800}
+.loader__bar{width:min(220px,58vw);height:3px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden;animation:ld-up .8s .35s var(--ease-out) both}
+.loader__bar i{display:block;height:100%;background:var(--sun);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s var(--ease)}
+@keyframes ld-in{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+@keyframes ld-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes ld-failsafe{to{opacity:0;pointer-events:none}}
+@keyframes ld-unlock{to{overflow:visible}}
+
+/* ---------- entrada del hero: arranca cuando se abre la pantalla de carga ---------- */
+html.is-ready .hero__eyebrow{animation:rise .9s var(--ease-out) .25s backwards}
+html.is-ready .hero__title .w>span{animation:word 1.05s var(--ease-out) calc(.3s + var(--i)*.085s) backwards}
+html.is-ready .hero__title .w--key>span::after{animation:swoosh .9s var(--ease-out) 1.1s backwards}
+html.is-ready .hero__lead{animation:rise .9s var(--ease-out) .75s backwards}
+html.is-ready .hero__cta{animation:rise .9s var(--ease-out) .88s backwards}
+html.is-ready .hero__chips{animation:rise .9s var(--ease-out) 1s backwards}
+html.is-ready .arch--a{animation:arch-in 1.25s var(--ease-out) .35s backwards}
+html.is-ready .arch--b{animation:arch-in 1.25s var(--ease-out) .6s backwards}
+html.is-ready .hero__sun{animation:sun-in 1.4s var(--ease-out) .2s backwards}
+html.is-ready .sticker{animation:pop .9s cubic-bezier(.3,1.5,.5,1) 1.2s backwards}
+html.is-ready .badge{animation:pop .9s cubic-bezier(.3,1.5,.5,1) 1.35s backwards}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}}
+@keyframes word{from{transform:translateY(108%)}}
+@keyframes swoosh{from{transform:scaleX(0)}}
+@keyframes arch-in{from{opacity:0;transform:translateY(70px) scale(.93)}}
+@keyframes sun-in{from{opacity:0;transform:scale(.6)}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}}
+
+/* las olas del hero y la cenefa de datos se mueven despacio (se pausan fuera de pantalla) */
+.wave{animation:drift 24s linear infinite}
+.wave--b{animation-duration:38s;animation-direction:reverse}
+.facts__key{animation:key-drift 6s linear infinite}
+@keyframes drift{to{transform:translate3d(-50%,0,0)}}
+@keyframes key-drift{to{transform:translate3d(calc(var(--key-p)*-1),0,0)}}
+.is-off .wave,.is-off .key{animation-play-state:paused}
+
+/* ---------- aparición al bajar ----------
+   Antes de aparecer el bloque solo está transparente; el desplazamiento vive únicamente dentro de la animación.
+   (Un desplazamiento fijo en cientos de bloques impedía que Chrome/Lighthouse midieran el LCP de la página.)
+   Se anima con "translate" y no con "transform" para no pelearse con los hover. */
+html.js [data-reveal]:not(.is-in){opacity:0}
+html.js [data-reveal].is-in{animation:reveal .95s var(--ease-out) calc(var(--i,0)*85ms) backwards}
+@keyframes reveal{from{opacity:0;translate:0 34px}}
+
+/* íconos de línea que se dibujan al aparecer (cada trazo tiene pathLength="1") */
+.ic *{stroke-dasharray:1 2;stroke-dashoffset:0}
+html.js .feat:not(.is-in) .ic *{stroke-dashoffset:1}
+html.js .feat.is-in .ic *{animation:draw 1.4s var(--ease) calc(var(--i,0)*85ms + .3s) backwards}
+@keyframes draw{from{stroke-dashoffset:1}}
+
+/* al elegir una pregunta, la respuesta entra suave */
+.panel:not([hidden]){animation:panel-in .5s var(--ease-out)}
+@keyframes panel-in{from{opacity:0;translate:0 14px}}
+
+/* barra "seña / resto" del precio */
+html.js .ticket:not(.is-in) .split i{transform:scaleX(0)}
+html.js .ticket.is-in .split__a{animation:grow 1s var(--ease-out) .5s backwards}
+html.js .ticket.is-in .split__b{animation:grow 1.3s var(--ease-out) .7s backwards}
+@keyframes grow{from{transform:scaleX(0)}}
+
+/* ecualizador del video: solo se mueve mientras suena */
+.vframe__badge{z-index:3;pointer-events:none}
+.vframe.is-playing .eq i{animation:eq .8s ease-in-out infinite alternate}
+.vframe.is-playing .eq i:nth-child(2){animation-duration:.55s;animation-delay:-.2s}
+.vframe.is-playing .eq i:nth-child(3){animation-duration:.95s;animation-delay:-.45s}
+.vframe.is-playing .eq i:nth-child(4){animation-duration:.65s;animation-delay:-.1s}
+@keyframes eq{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
+
+/* ---------- equipos lentos ("lite", lo decide boot.js): sin bucles ni parallax ---------- */
+.lite .wave,.lite .key{animation:none}
+.lite [data-par]{translate:none!important}
+
+/* ---------- "reducir movimiento" del sistema: todo queda quieto y visible ---------- */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important}
+  html.js [data-reveal]:not(.is-in){opacity:1}
+  .wave,.key{animation:none!important}
+}
